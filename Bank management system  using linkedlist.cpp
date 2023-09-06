@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int length=0;
+int length;
 class node
 {
 public:
@@ -90,6 +90,7 @@ void bank::openAccount()
             p->next = temp;
             p = temp;
         }
+        length++;
         cout << "Press 1 to enter again= ";
         cin >> ch1;
     }
@@ -107,16 +108,16 @@ void bank::displayDetails()
         cout << "\nBank Account Management System\n";
         while (p != NULL)
         {
-            cout << "AccountHolder " << p->val << " -> "
-                 << "Lname: " << p->lname << "->"
-                 << "Name: " << p->name << " -> "
-                 << "Phone number: " << p->phn << " -> "
-                 << "Account id: " << p->id << "->"
-                 << "Email id: " << p->email << " -> "
-                 << "Cash in account: Rs. " << p->cash << "\n";
+            cout << "AccountHolder " << p->val << endl;
+                cout  << "Lname: " << p->lname << endl;
+                cout << "Name: " << p->name << endl;
+                cout << "Phone number: " << p->phn << endl;
+                cout << "Account id: " << p->id << endl;
+                cout << "Email id: " << p->email << endl;
+                cout << "Cash in account: Rs. " << p->cash << "\n";
             p = p->next;
         }
-        cout << "\nTotal AccountHolders= " << length;
+        cout << "\nTotal AccountHolders= " << length<<endl;
     }
 }
 
@@ -149,6 +150,7 @@ void bank::insertData()
     temp->id = id;
     temp->next = head;
     head = temp;
+    length++;
 }
 
 void bank::deposit(int id)
@@ -236,7 +238,7 @@ void bank::withdrawal(int id)
         return;
     }
 
-    current->cash -= amt;
+    current->cash =  current->cash - amt;
     cout << "After withdrawal, your total amount in account is " << current->cash << endl;
 }
 
@@ -370,14 +372,15 @@ void bank::search()
     else
     {
         cout << "\n-------------DETAILS OF THE ACCOUNT HOLDER \n";
-        cout << "\n"
-             << "AccountHolder " << p->val << " -> "
-             << "Lname: " << p->lname << " ->"
-             << "Name: " << p->name << " ->"
-             << "Phone number: " << p->phn << " -> "
-             << "Account id: " << p->id << " ->"
-             << "Email id: " << p->email << " -> "
-             << "Cash in account: Rs. " << p->cash << "\n";
+        cout << "\n";
+             
+              cout << "AccountHolder " << p->val << endl;
+                cout  << "Lname: " << p->lname << endl;
+                cout << "Name: " << p->name << endl;
+                cout << "Phone number: " << p->phn << endl;
+                cout << "Account id: " << p->id << endl;
+                cout << "Email id: " << p->email << endl;
+                cout << "Cash in account: Rs. " << p->cash << "\n";
     }
 }
 
